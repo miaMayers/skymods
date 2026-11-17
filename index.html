@@ -316,7 +316,9 @@
       position: absolute;
       inset: 0;
       /* gradient set inline per card */
+      transition: transform 0.5s ease;
     }
+    .mod-card:hover .card-head-bg { transform: scale(1.05); }
     /* Noise overlay for depth */
     .card-head-bg::after {
       content: '';
@@ -406,6 +408,40 @@
       color: #fff;
       text-shadow: 0 2px 12px rgba(0,0,0,.55);
       letter-spacing: -0.5px;
+    }
+
+    /* Dark gradient overlay for video thumbnails */
+    .card-head-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.44) 50%, rgba(0,0,0,0.20) 100%);
+      pointer-events: none;
+    }
+    /* Watch button (video cards only) */
+    .btn-watch {
+      position: absolute;
+      top: 66px;
+      right: 12px;
+      z-index: 3;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 11px;
+      border-radius: var(--radius-pill);
+      font-size: 11px;
+      font-weight: 700;
+      text-decoration: none;
+      color: rgba(255,255,255,0.92);
+      background: rgba(0,0,0,0.5);
+      border: 1px solid rgba(255,255,255,0.22);
+      backdrop-filter: blur(8px);
+      transition: background 0.2s, border-color 0.2s, transform 0.15s;
+      letter-spacing: 0.3px;
+    }
+    .btn-watch:hover {
+      background: rgba(220,38,38,0.72);
+      border-color: rgba(255,80,80,0.4);
+      transform: translateY(-1px);
     }
 
     /* ---- Body ---- */
@@ -685,6 +721,7 @@
       version: '26.2+',
       downloads: '5.1M',
       featured: true,
+      videoId: 'mnq57WmRJGU',
       gradient: 'linear-gradient(140deg,#1a1557 0%,#2d2680 55%,#1e3a8a 100%)',
       glowColor: 'rgba(99,102,241,0.18)',
       accentRgb: '129,140,248',
@@ -704,6 +741,7 @@
       version: '26.2+',
       downloads: '2M+',
       featured: true,
+      videoId: 'b7oCHHRnXgw',
       gradient: 'linear-gradient(140deg,#052e1b 0%,#064e30 55%,#065f46 100%)',
       glowColor: 'rgba(16,185,129,0.15)',
       accentRgb: '52,211,153',
@@ -723,6 +761,7 @@
       version: '26.2+',
       downloads: '800K+',
       featured: false,
+      videoId: 'gaFPKd9GphY',
       gradient: 'linear-gradient(140deg,#1e0a4a 0%,#3b1878 55%,#2d1060 100%)',
       glowColor: 'rgba(139,92,246,0.14)',
       accentRgb: '167,139,250',
@@ -742,6 +781,7 @@
       version: '1.21+',
       downloads: '400K+',
       featured: false,
+      videoId: 'ZJvAcX_w70M',
       gradient: 'linear-gradient(140deg,#042338 0%,#0c4a6e 55%,#075985 100%)',
       glowColor: 'rgba(14,165,233,0.14)',
       accentRgb: '56,189,248',
@@ -761,6 +801,7 @@
       version: '26.1.2+',
       downloads: '50K+',
       featured: false,
+      videoId: 'ZV1k1hSJy-k',
       gradient: 'linear-gradient(140deg,#450424 0%,#881337 55%,#9f1239 100%)',
       glowColor: 'rgba(244,63,94,0.14)',
       accentRgb: '251,113,133',
@@ -780,6 +821,7 @@
       version: '1.21+',
       downloads: '300K+',
       featured: false,
+      videoId: 'tfgdmolVlAs',
       gradient: 'linear-gradient(140deg,#0a2e2b 0%,#115e59 55%,#0f766e 100%)',
       glowColor: 'rgba(20,184,166,0.14)',
       accentRgb: '45,212,191',
@@ -799,6 +841,7 @@
       version: '1.21+',
       downloads: '200K+',
       featured: false,
+      videoId: 'dhvVG2Rg0dI',
       gradient: 'linear-gradient(140deg,#0a0f28 0%,#0f1e4a 55%,#1e3a8a 100%)',
       glowColor: 'rgba(96,165,250,0.12)',
       accentRgb: '147,197,253',
@@ -818,6 +861,7 @@
       version: '1.21+',
       downloads: '250K+',
       featured: false,
+      videoId: 'mIOoejqjJX8',
       gradient: 'linear-gradient(140deg,#2d0f04 0%,#7c2d12 55%,#9a3412 100%)',
       glowColor: 'rgba(234,88,12,0.14)',
       accentRgb: '251,146,60',
@@ -837,6 +881,7 @@
       version: '1.21.5+',
       downloads: '100K+',
       featured: false,
+      videoId: 'h3iKAmsMnzI',
       gradient: 'linear-gradient(140deg,#042033 0%,#0c4a6e 55%,#075985 100%)',
       glowColor: 'rgba(14,165,233,0.12)',
       accentRgb: '125,211,252',
@@ -856,6 +901,7 @@
       version: '1.21.5+',
       downloads: '80K+',
       featured: false,
+      videoId: 'tWoQvdxQ_oo',
       gradient: 'linear-gradient(140deg,#180b35 0%,#4c1d95 55%,#5b21b6 100%)',
       glowColor: 'rgba(167,139,250,0.12)',
       accentRgb: '216,180,254',
@@ -875,6 +921,7 @@
       version: '1.21+',
       downloads: '150K+',
       featured: false,
+      videoId: 'O-Z9XCk6D1s',
       gradient: 'linear-gradient(140deg,#042030 0%,#0e4d63 55%,#0c5f7a 100%)',
       glowColor: 'rgba(6,182,212,0.12)',
       accentRgb: '34,211,238',
@@ -894,6 +941,7 @@
       version: '1.21+',
       downloads: '90K+',
       featured: false,
+      videoId: '2uQjVqicO3Y',
       gradient: 'linear-gradient(140deg,#032009 0%,#145214 55%,#166534 100%)',
       glowColor: 'rgba(74,222,128,0.1)',
       accentRgb: '74,222,128',
@@ -913,6 +961,7 @@
       version: '1.21+',
       downloads: '120K+',
       featured: false,
+      videoId: 'S4sL0UH_RMs',
       gradient: 'linear-gradient(140deg,#2a1500 0%,#78350f 55%,#92400e 100%)',
       glowColor: 'rgba(245,158,11,0.12)',
       accentRgb: '251,191,36',
@@ -932,6 +981,7 @@
       version: '1.21+',
       downloads: '70K+',
       featured: false,
+      videoId: 'HvUPH-YfWyQ',
       gradient: 'linear-gradient(140deg,#2d0404 0%,#7f1d1d 55%,#991b1b 100%)',
       glowColor: 'rgba(248,113,113,0.1)',
       accentRgb: '252,165,165',
@@ -951,6 +1001,7 @@
       version: '1.21+',
       downloads: '200K+',
       featured: false,
+      videoId: 'xSqjIqeBORE',
       gradient: 'linear-gradient(140deg,#1a1a1a 0%,#2d2d2d 55%,#404040 100%)',
       glowColor: 'rgba(212,212,212,0.07)',
       accentRgb: '212,212,212',
@@ -1041,8 +1092,12 @@
 
       card.innerHTML = `
         <div class="card-head">
-          <div class="card-head-bg" style="background:${mod.gradient}"></div>
-          <div class="card-head-glow" style="background:radial-gradient(ellipse at 80% 30%, rgba(${mod.accentRgb},.35) 0%, transparent 65%)"></div>
+          ${mod.videoId
+            ? `<div class="card-head-bg" style="background-image:url('https://img.youtube.com/vi/${mod.videoId}/maxresdefault.jpg');background-size:cover;background-position:center"></div>
+               <div class="card-head-overlay"></div>`
+            : `<div class="card-head-bg" style="background:${mod.gradient}"></div>
+               <div class="card-head-glow" style="background:radial-gradient(ellipse at 80% 30%, rgba(${mod.accentRgb},.35) 0%, transparent 65%)"></div>`
+          }
           <i class="ph-fill ${mod.icon} card-head-ghost" style="color:rgba(${mod.accentRgb},1)"></i>
           <div class="card-badges">
             ${mod.featured ? '<span class="badge badge-featured"><i class="ph-fill ph-star"></i> Featured</span>' : ''}
@@ -1052,6 +1107,7 @@
             <i class="ph-fill ${mod.icon}"></i>
           </div>
           <div class="card-head-title">${mod.name}</div>
+          ${mod.videoId ? `<a class="btn-watch" href="https://www.youtube.com/watch?v=${mod.videoId}" target="_blank" rel="noopener"><i class="ph-fill ph-play-circle"></i> Watch</a>` : ''}
         </div>
         <div class="card-body">
           <div class="card-tagline">${mod.tagline}</div>
